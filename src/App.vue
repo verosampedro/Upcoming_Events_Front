@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import { useEventsStore } from './stores/eventsStore';
+import { onBeforeMount } from 'vue'
 
+const eventsStore = useEventsStore()
+
+onBeforeMount (async () => {
+  await eventsStore.setEvents()
+})
 </script>
 
 <template>
@@ -8,7 +15,6 @@ import { RouterLink, RouterView } from 'vue-router'
     
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
