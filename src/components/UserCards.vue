@@ -8,21 +8,25 @@ const toggleSignedUp = () => {
   isSigned.value = !isSigned.value;
 };
 
+defineProps<{
+    event: any
+}>()
+
 </script>
 
 <template>
   <div id="cards">
     <img src="/src/assets/img/Jornadas-de-la-Matanza-2024-FIT-Amieva.jpg" alt="" class="mainImage">
-    <h2>JORNADAS DE LA MATANZA</h2>
+    <h2>{{ event.event_title }}</h2>
 
     <div class="location">
       <img src="/src/assets/img/place-svgrepo-com.svg" alt="">
-      <p>AMIEVA</p>
+      <p>{{ event.city.city_name }}</p>
     </div>
 
     <div class="date">
       <img src="/src/assets/img/calendar-days-svgrepo-com.svg" alt="">
-      <p>02/02/2024 ~ 04/02/24</p>
+      <p>{{ event.start_date }} ~ 04/02/24</p>
     </div>
 
     <button @click="toggleSignedUp">
