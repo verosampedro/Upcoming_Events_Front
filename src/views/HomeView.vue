@@ -7,10 +7,13 @@ const eventsStore = useEventsStore()
 </script>
 
 <template>
+
   <main>
+  <h1></h1>
   <h1>Holaaaa</h1>
     <button @click="console.log(eventsStore.events)">Print Data</button>
   <UserCards v-for="event in eventsStore.events" :key="event.id" :event="event" />
   <PastEventsUser />
   </main>
+  
 </template>

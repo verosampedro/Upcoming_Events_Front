@@ -2,6 +2,8 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { useEventsStore } from './stores/eventsStore';
 import { onBeforeMount } from 'vue'
+import FooterTemplate from '@/components/Home/FooterTemplate.vue';
+import HeaderTemplate from '@/components/Home/HeaderTemplate.vue';
 
 const eventsStore = useEventsStore()
 
@@ -11,9 +13,7 @@ onBeforeMount (async () => {
 </script>
 
 <template>
-  <header>
-    
-
+  
     <div class="wrapper">
 
       <nav>
@@ -23,8 +23,10 @@ onBeforeMount (async () => {
         <RouterLink to="/admin-dashboard">Admin Dasboard</RouterLink>
       </nav>
     </div>
-  </header>
-
+ 
+  
+  <HeaderTemplate />
+  <FooterTemplate />
   <RouterView />
 </template>
 
