@@ -5,10 +5,13 @@ import UserCards from '@/components/UserCards.vue';
 </script>
 
 <template>
+
   <main>
+  <h1></h1>
   <h1>Holaaaa</h1>
 
   <UserCards />
   <PastEventsUser />
   </main>
+  
 </template>

@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import FooterTemplate from '@/components/Home/FooterTemplate.vue';
+import HeaderTemplate from '@/components/Home/HeaderTemplate.vue';
 
 </script>
 
 <template>
-  <header>
-    
-
+  
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
@@ -17,8 +17,10 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/admin-dashboard">Admin Dasboard</RouterLink>
       </nav>
     </div>
-  </header>
-
+ 
+  
+  <HeaderTemplate />
+  <FooterTemplate />
   <RouterView />
 </template>
 
