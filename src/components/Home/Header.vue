@@ -111,6 +111,12 @@
 
 
   @media (max-width: 540px) {
+
+    header {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
   .asturias {
     width: 109px; 
   
@@ -122,6 +128,7 @@
   }
 
   @media (max-width: 480px) {
+
     header {
       display: flex;
       align-items: center;
@@ -138,6 +145,7 @@
 
 
   @media (max-width: 280px) {
+   
     header {
       display: flex;
       align-items: center;
