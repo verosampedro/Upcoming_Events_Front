@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import PastEventsUser from '@/components/PastEventsUser.vue';
+import UserCards from '@/components/UserCards.vue';
 
 </script>
 
@@ -6,6 +8,10 @@
 
   <main>
   <h1></h1>
+  <h1>Holaaaa</h1>
+
+  <UserCards />
+  <PastEventsUser />
   </main>
   
 </template>
