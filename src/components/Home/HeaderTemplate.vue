@@ -5,7 +5,7 @@
 
 <template>
 
-  <header>
+  <Header>
     <div>
         <a class="navbar-brand" href="/"> <img src="/src/assets/img/layout_set_logo.png" width="299" height="107" class="asturias" alt="Logo Asturias Paraíso Natural"></a>
     </div>
@@ -37,7 +37,7 @@
         </div>
       </div>
     </nav>
-    </header>
+  </Header>
 
 </template>
 <style scoped lang="scss">
