@@ -1,9 +1,42 @@
 <script setup lang="ts">
 
-
-import { ref } from 'vue';
+import { useAuthStore } from '@/stores/authStore';
+import { ref,type Ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import type { IAuthUser } from '@/models/IAuthUser';
+import AuthService from '@/services/AuthService';
 
+
+
+
+const store = useAuthStore()
+const service = new AuthService()
+
+const input_email: Ref<string> = ref('')
+const input_password: Ref<string> = ref('')
+
+const route = useRoute()
+const router = useRouter()
+
+const login = async () => {
+
+  store.user.email = input_email.value
+
+  const data: IAuthUser = {
+    email: input_email.value,
+    password: input_password.value
+  }
+
+  const responseData = await service.login(data)
+
+  if (input_email.value == store.user.email) {
+    store.user.isAuthenticated = responseData.isAuthenticated
+    store.user.roles = responseData.roles
+    const redirectPath = '/'
+    router.push(redirectPath)
+  }
+
+}
 
 // const store = useAuthStore()
 
@@ -30,11 +63,11 @@ import { useRoute, useRouter } from 'vue-router';
         <div id="container">
             <div class="form">
                 <img src="/src/assets/img/layout_set_logo.png" alt="">
-                    <form @submit.prevent="console.log('Hola')">
+                    <form @submit.prevent="login()">
                         <label for="correoelectronico">Correo electrónico</label>
-                        <input class="input-field" type="text" v-model="username" required>
+                        <input class="input-field" type="text" v-model="input_email" required>
                         <label for="contrasena">Contraseña</label>
-                        <input class="=input-field" type="text" v-model="password" required>
+                        <input class="=input-field" type="password" v-model="input_password" required>
                         <p>¿Todavía no estás registrado?</p>
                         <p>¿Has olvidado tu contraseña?</p>
                         <button type="submit" :disabled="isLoading" class="btn btn-primary btn-lg">
@@ -58,7 +91,7 @@ import { useRoute, useRouter } from 'vue-router';
     height: 100rem;
     position: relative;
     @media (min-width: 1024px) {
-        
+
     }
     
 .form {
