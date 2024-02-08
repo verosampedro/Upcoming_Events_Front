@@ -56,7 +56,10 @@ import { useRoute, useRouter } from 'vue-router';
     background-size: cover;
     background-repeat: no-repeat;
     height: 100rem;
-   
+    position: relative;
+    @media (min-width: 1024px) {
+        
+    }
     
 .form {
     background-color: #006DB0;
@@ -70,6 +73,7 @@ import { useRoute, useRouter } from 'vue-router';
     font-family: 'Raleway', sans-serif;
     font-size: 38px;
     align-items: center;
+    
 
 }
 
