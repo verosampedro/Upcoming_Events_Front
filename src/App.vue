@@ -2,8 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { useEventsStore } from './stores/eventsStore';
 import { onBeforeMount } from 'vue'
-import FooterTemplate from '@/components/Home/FooterTemplate.vue';
-import HeaderTemplate from '@/components/Home/HeaderTemplate.vue';
+
 
 const eventsStore = useEventsStore()
 
@@ -25,8 +24,7 @@ onBeforeMount (async () => {
     </div>
  
   
-  <HeaderTemplate />
-  <FooterTemplate />
+
   <RouterView />
 </template>
 
