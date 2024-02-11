@@ -22,7 +22,8 @@
   font-family: $first-font;
 
   .form-control   {
-    width: 200px;
+
+    width: 80%;
     border-radius:10px;
     border: solid 1;
     color: $astur-blue;
