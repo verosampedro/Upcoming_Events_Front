@@ -6,7 +6,6 @@ import HeaderTemplate from '@/components/Home/HeaderTemplate.vue';
 </script>
 <template>
     <div>
-        <HeaderTemplate/>
         <LoginForm/>
         
 
