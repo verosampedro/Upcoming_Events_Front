@@ -28,6 +28,7 @@ const login = async () => {
   }
 
   const responseData = await service.login(data)
+  console.log(responseData)
 
   if (input_email.value == store.user.email) {
     store.user.isAuthenticated = responseData.isAuthenticated
