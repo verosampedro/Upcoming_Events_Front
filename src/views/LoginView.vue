@@ -7,7 +7,6 @@ import RegistroUsuario from '@/components/RegistroUsuario.vue';
 </script>
 <template>
     <div>
-        <HeaderTemplate/>
         <LoginForm/>
         <RegistroUsuario/>
         

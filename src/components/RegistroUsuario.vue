@@ -3,14 +3,16 @@
 import { useAuthStore } from '@/stores/authStore';
 import { ref,type Ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import type { IAuthUser } from '@/models/IAuthUser';
+// import type { IAuthUser } from '@/models/IAuthUser';
 import AuthService from '@/services/AuthService';
+// import type { IRegisterUser } from '@/models/IRegisterUser';
 
 
 
 
 const store = useAuthStore()
 const service = new AuthService()
+
 
 const input_name: Ref<String> = ref('')
 const input_email: Ref<string> = ref('')
@@ -23,11 +25,16 @@ const login = async () => {
 
   store.user.email = input_email.value
 
-  const data: IAuthUser = {
+  const data: IRegisterUser = {
     name: input_name.value,
     email: input_email.value,
     password: input_password.value
   }
+
+  // const data: IAuthUser = {
+  //   email: input_email.value,
+  //   password: input_password.value
+  // }
 
   const responseData = await service.login(data)
 
