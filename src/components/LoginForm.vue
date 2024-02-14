@@ -92,20 +92,8 @@ const login = async () => {
     background-size:cover;
     background-repeat: no-repeat;
     height: 100rem;
-    position: relative;
+    padding: 3%;
     
-    @media (min-width: 1024px) {
-
-    }
-    * { 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    min-height: 100%;
-}
     
 .form {
     background-color: #006DB0;
