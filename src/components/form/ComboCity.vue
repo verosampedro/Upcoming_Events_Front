@@ -35,26 +35,26 @@ fetchCities();
 
 <style scoped lang="scss">
 
-#localidad {
-  padding-left: 1%;
-  font-size: 18px;
-  font-weight: bold;
-}
-.combFrm {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 1%;
-  outline: 0;
-  color: $astur-blue;
-  font-family: $first-font;
-}
+// #localidad {
+//   padding-left: 1%;
+//   font-size: 18px;
+//   font-weight: bold;
+// }
+// .combFrm {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+//   padding: 1%;
+//   outline: 0;
+//   color: $astur-blue;
+//   font-family: $first-font;
+// }
 
-select {
-  background-color: $astur-blue;
-  width: 80%;
-  border-radius: 10px;
-  border: solid 1;
-  color: white;
-}
+// select {
+//   background-color: $astur-blue;
+//   width: 80%;
+//   border-radius: 10px;
+//   border: solid 1;
+//   color: white;
+// }
 </style>

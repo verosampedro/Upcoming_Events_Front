@@ -1,21 +1,50 @@
 <script setup lang="ts">
-import axios from "axios";
-import { ref } from "vue";
+import axios from 'axios';
+import ComboCity from './ComboCity.vue';
+// import axios from "axios";
+// import { ref } from "vue";
 
-interface cities {
-  id_city: number;
-  city_name: string;
+// interface cities {
+//   id_city: number;
+//   city_name: string;
+// }
+
+// const allCities = ref<cities[]>([]);
+
+// const fetchCities = async () => {
+//   const response = await axios.get("http://localhost:8080/api/v1/cities");
+//   allCities.value = response.data;
+//   console.log(response.data);
+// };
+
+// fetchCities();
+
+let event_title ='';
+let start_date = '';
+let finish_date ='';
+let max_participants='';
+let description='';
+let id_city='';
+let event_image = '';
+
+const submitForm = () => {
+  axios.post("http://localhost:8080/ap/v1/events", {
+    event_title: event_title,
+    start_date: start_date,
+    finish_date: finish_date,
+    max_participants: max_participants,
+    description: description,
+    city: id_city,
+    event_image: event_image
+  })
+  .then(response => {
+    console.log(response);
+  })
+  .catch(error => {
+    console.log(error);
+  });
 }
 
-const allCities = ref<cities[]>([]);
-
-const fetchCities = async () => {
-  const response = await axios.get("http://localhost:8080/api/v1/cities");
-  allCities.value = response.data;
-  console.log(response.data);
-};
-
-fetchCities();
 </script>
 
 <template>
@@ -43,11 +72,13 @@ fetchCities();
       </div>
       <div class="EventNameContainer">
         <label class="EventName" for="EventName">Nombre del Evento:</label>
-        <input class="EventNameInput" type="text" />
+        <input class="EventNameInput" type="text" v-model="event_title"/>
       </div>
       <div class="combFrm">
-        <label for="localidades" id="localidad">Localidades</label>
-        <select v-model="fetchCities" id="comboForm">
+        
+        <!-- <label for="localidades" id="localidad">Localidades</label> -->
+        <ComboCity/>
+        <!-- <select v-model="fetchCities" id="comboForm">
           <option value="null">Seleccione localidad</option>
           <option
             v-for="cities in allCities"
@@ -57,16 +88,16 @@ fetchCities();
           >
             {{ cities.city_name }}
           </option>
-        </select>
+        </select> -->
       </div>
       <div class="dateContainer">
         <div id="dates">
           <label for="date" class="form-label">Fecha de inicio:</label>
-          <input type="date" class="form-control" id="date" />
+          <input type="date" class="form-control" id="date" v-model="start_date"/>
         </div>
         <div class="dates">
           <label for="date" class="form-label">Fecha fin:</label>
-          <input type="date" class="form-control" id="date" />
+          <input type="date" class="form-control" id="date" v-model="finish_date"/>
         </div>
         <div class="participants">
           <label class="form-label" for="Participants">Participantes:</label>
@@ -75,6 +106,7 @@ fetchCities();
             type="text"
             name="Participants"
             id="Participants"
+            v-model="max_participants"
           />
         </div>
       </div>
@@ -86,159 +118,18 @@ fetchCities();
           id="description"
           cols="20"
           rows="10"
+          v-model="description"
         ></textarea>
       </div>
       <div class="mb-3">
         <label for="formFile" class="form-label">Imagen:</label>
         <input class="form-control" type="file" id="formFile" />
       </div>
+      <div class="SubmitButton">
+        <button class="subBtn" type="submit" @click="submitForm">Guardar</button>
+      </div>
     </div>
   </div>
 </template>
 <style scoped lang="scss">
-.Container {
-  align-items: center;
-}
-
-.titleContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-bottom: 2%;
-  padding-top: 2%;
-}
-.x {
-  color: $astur-blue;
-  size: 40px;
-}
-.FormNewEvent {
-  background-color: $astur-blue;
-  max-width: 800px;
-  border-radius: 10px;
-  justify-content: center;
-  align-self: center;
-  padding: 1% 7%;
-  .title {
-    font-family: $second-font;
-    color: $astur-yellow;
-    font-size: 40px;
-    text-justify: center;
-    @media screen and (max-width: 440px) {
-    font-size: 30px;
-  }
-  }
-
-  @media screen and (max-width: 440px) {
-    max-width: 360px;
-  }
-}
-.EventNameContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 1%;
-  outline: 0;
-  color: white;
-  font-family: $first-font;
-}
-.EventName {
-  padding-left: 1%;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.EventNameInput {
-  background-color: white;
-  width: 640px;
-  border-radius: 10px;
-  border: solid 1;
-  color: $astur-blue;
-  padding-left: 1%;
-  @media screen and (max-width: 440px) {
-    width: 300px;
-  }
-}
-#localidad {
-  padding-left: 1%;
-  font-size: 18px;
-  font-weight: bold;
-  width: 640px;
-  @media screen and (max-width: 440px) {
-    max-width: 360px;
-  }
-}
-.combFrm {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 1%;
-  outline: 0;
-  color: white;
-  font-family: $first-font;
-  font-size: 18px;
-  width: 640px;
-  @media screen and (max-width: 440px) {
-    max-width: 360px;
-  }
-}
-
-select {
-  background-color: white;
-  border-radius: 10px;
-  border: solid 1;
-  color: $astur-blue;
-  width: 640px;
-  @media screen and (max-width: 440px) {
-    max-width: 300px;
-  }
-}
-.dateContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: space-between;
-  padding: 1%;
-  width: 640px;
-  gap: 1%;
-  font-family: $first-font;
-  @media screen and (max-width: 440px) {
-    max-width: 360px;
-    flex-direction: column;
-  }
-
-  .form-control {
-    border-radius: 10px;
-    border: solid 1;
-    color: white;
-    margin: 1%;
-    width: 250;
-    @media screen and (max-width: 440px) {
-      max-width: 300px;
-    }
-  }
-}
-.form-label {
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  padding-left: 1%;
-}
-#description {
-  width: 640px;
-  padding-left: 1%;
-  margin-left: 1%;
-  @media screen and (max-width: 440px) {
-    max-width: 300px;
-  }
-}
-.mb-3 {
-  width: 640px;
-  margin-left: 1%;
-  color: $astur-blue;
-  --bs-body-color: $astur-blue;
-  --bs-tertiary-bg: $astur-blue;
-  @media screen and (max-width: 440px) {
-    max-width: 300px;
-  }
-}
 </style>
