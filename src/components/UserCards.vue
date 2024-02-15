@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import { useUsersStore } from '@/stores/usersStore';
 import { ref } from 'vue';
 
 const isSigned = ref(false);
@@ -11,6 +12,8 @@ const toggleSignedUp = () => {
 defineProps<{
     event: any
 }>()
+
+const usersStore = useUsersStore()
 
 </script>
 
@@ -29,7 +32,7 @@ defineProps<{
       <p>{{ event.start_date }} ~ 04/02/24</p>
     </div>
 
-    <button @click="toggleSignedUp">
+    <button @click="toggleSignedUp(), usersStore.updateUserEvents(event.id)">
       {{ isSigned ? '¡ME DESAPUNTO!' : '¡ME APUNTO!' }}
     </button>
 
@@ -84,6 +87,26 @@ defineProps<{
     margin-left: 30%;
   }
 
+}
+
+
+@media only screen and (min-width: 768px) {
+
+#cards {
+  width: 15%;
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  img {
+    width: 10%;
+  }
+
+  .mainImage {
+    width: 40%;
+  }
+}
 }
 
 </style>

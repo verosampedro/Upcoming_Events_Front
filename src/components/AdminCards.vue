@@ -96,4 +96,24 @@
 }
 
 }
+
+
+@media only screen and (min-width: 768px) {
+
+#cards {
+  width: 15%;
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  img {
+    width: 10%;
+  }
+
+  .mainImage {
+    width: 40%;
+  }
+}
+}
 </style>

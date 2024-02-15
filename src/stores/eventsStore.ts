@@ -5,7 +5,7 @@ import EventService from '@/services/EventService'
 import type Event from '@/models/Event'
 
 
-export const useEventsStore = defineStore('users', () => {
+export const useEventsStore = defineStore('events', () => {
 
     const repository = new EventRepository()
     const service = new EventService(repository)
