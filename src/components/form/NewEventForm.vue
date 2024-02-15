@@ -10,7 +10,7 @@ interface cities {
 const allCities = ref<cities[]>([]);
 
 const fetchCities = async () => {
-    const response = await axios.get("http://localhost:8080/api/v1/cities");
+    const response = await axios.get("http://localhost:8080/api/v1/cities", {withCredentials:true});
     allCities.value = response.data;
     console.log(response.data);
 }
