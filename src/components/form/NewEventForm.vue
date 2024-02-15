@@ -25,9 +25,9 @@ let max_participants='';
 let description='';
 let cityName: '';
 let event_image = '';
-
 const submitForm = () => {
-  axios.post("http://localhost:8080/api/v1/events", {
+  axios.post("http://localhost:8080/api/v1/events",{
+   
     event_title: event_title,
     start_date: start_date,
     finish_date: finish_date,
@@ -35,12 +35,13 @@ const submitForm = () => {
     description: description,
     cityName: cityName,
     event_image: event_image
-  })
+  }) 
+  
   .then(response => {
-    console.log(response);
+    console.log(response, "Se ha añadido el evento");
   })
   .catch(error => {
-    console.log(error);
+    console.log(error, "necesita estar logueado");
   });
 }
 
