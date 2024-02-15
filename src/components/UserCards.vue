@@ -1,5 +1,7 @@
 <script setup lang="ts">
 
+import { useAuthStore } from '@/stores/authStore';
+import { useEventsStore } from '@/stores/eventsStore';
 import { useUsersStore } from '@/stores/usersStore';
 import { ref } from 'vue';
 
@@ -14,6 +16,8 @@ defineProps<{
 }>()
 
 const usersStore = useUsersStore()
+const authStore = useAuthStore()
+const eventsStore = useEventsStore()
 
 </script>
 
@@ -49,6 +53,7 @@ const usersStore = useUsersStore()
   padding: 10px;
   text-align: center;
   font-family: 'Raleway', sans-serif;
+  margin: 2%;
 
   .location,
   .date {
@@ -105,6 +110,13 @@ const usersStore = useUsersStore()
 
   .mainImage {
     width: 40%;
+  }
+
+  button {
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-left: 30%;
   }
 }
 }
