@@ -6,7 +6,7 @@ import { ref } from 'vue';
 
 interface cities {
     id_city : number;
-    city_name: string;
+    nameOfCity: string;
 }
 
 const allCities = ref<cities[]>([]);
@@ -19,19 +19,19 @@ const fetchCities = async () => {
 
 fetchCities();
 
-
 </script>
 <template>
   <div class="combFrm">
     <label for="localidades" id="localidad">Localidades</label>
     <select v-model="fetchCities" id="comboForm">
       <option value="null">Seleccione localidad</option>
-      <option v-for="cities in allCities" v-bind:value="cities.city_name" :key="cities.id_city" selected>
-        {{ cities.city_name }}
+      <option v-for="cities in allCities" v-bind:value="cities.nameOfCity" :key="cities.id_city" selected>
+        {{ cities.nameOfCity }}
       </option>
     </select>
   </div>
 </template>
+
 
 <style scoped lang="scss">
 

@@ -1,40 +1,39 @@
 <script setup lang="ts">
 import axios from 'axios';
-import ComboCity from './ComboCity.vue';
-// import axios from "axios";
-// import { ref } from "vue";
+import { ref } from 'vue';
 
-// interface cities {
-//   id_city: number;
-//   city_name: string;
-// }
+interface cities {
+    id_city : number;
+    nameOfCity: string;
+}
 
-// const allCities = ref<cities[]>([]);
+const allCities = ref<cities[]>([]);
 
-// const fetchCities = async () => {
-//   const response = await axios.get("http://localhost:8080/api/v1/cities");
-//   allCities.value = response.data;
-//   console.log(response.data);
-// };
+const fetchCities = async () => {
+    const response = await axios.get("http://localhost:8080/api/v1/cities");
+    allCities.value = response.data;
+    console.log(response.data);
+}
 
-// fetchCities();
+fetchCities();
+
 
 let event_title ='';
 let start_date = '';
 let finish_date ='';
 let max_participants='';
 let description='';
-let id_city='';
+let cityName: '';
 let event_image = '';
 
 const submitForm = () => {
-  axios.post("http://localhost:8080/ap/v1/events", {
+  axios.post("http://localhost:8080/api/v1/events", {
     event_title: event_title,
     start_date: start_date,
     finish_date: finish_date,
     max_participants: max_participants,
     description: description,
-    city: id_city,
+    cityName: cityName,
     event_image: event_image
   })
   .then(response => {
@@ -75,20 +74,14 @@ const submitForm = () => {
         <input class="EventNameInput" type="text" v-model="event_title"/>
       </div>
       <div class="combFrm">
+        <label for="localidades" id="localidad">Localidades</label>
+    <select @click="fetchCities" id="comboForm" v-model="cityName">
+      <option value="null">Seleccione localidad</option>
+      <option v-for="cities in allCities" v-bind:value="cities.nameOfCity" :key="cities.id_city" selected >
+        {{ cities.nameOfCity }}
+      </option>
+    </select>
         
-        <!-- <label for="localidades" id="localidad">Localidades</label> -->
-        <ComboCity/>
-        <!-- <select v-model="fetchCities" id="comboForm">
-          <option value="null">Seleccione localidad</option>
-          <option
-            v-for="cities in allCities"
-            v-bind:value="cities.city_name"
-            :key="cities.id_city"
-            selected
-          >
-            {{ cities.city_name }}
-          </option>
-        </select> -->
       </div>
       <div class="dateContainer">
         <div id="dates">
