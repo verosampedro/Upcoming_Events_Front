@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import ComboCity from '@/components/form/ComboCity.vue';
+import NewEventForm from '@/components/form/NewEventForm.vue';
+
+
 </script>
 <template>
+  <body>
     <div>
-        <ComboCity/>
+        <NewEventForm/>
     </div>
+  </body>
 </template>
 <style scoped lang="scss">
 </style>
