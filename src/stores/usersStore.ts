@@ -1,4 +1,3 @@
-import Event from "@/models/Event"
 import type { IUpdatedUser } from "@/models/IUpdatedUser"
 import UserRepository from "@/repositories/UserRepository"
 import UserService from "@/services/UserService"

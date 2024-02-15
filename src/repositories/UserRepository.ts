@@ -1,4 +1,3 @@
-import type User from '@/models/User';
 import axios from 'axios';
 
 export default class UserRepository {
@@ -11,7 +10,7 @@ export default class UserRepository {
             const response = await axios.put(this.uri + '/eventSignUp/' + id, {}, { withCredentials: true });
             return response.data;
         } catch (error) {
-            throw new Error('Error occurred during API fetch PUT request to the Users table');
+            alert ('The maximum numbers of participants is reached');
         }
     }
 }

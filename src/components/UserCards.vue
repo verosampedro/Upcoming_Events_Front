@@ -1,7 +1,5 @@
 <script setup lang="ts">
 
-import { useAuthStore } from '@/stores/authStore';
-import { useEventsStore } from '@/stores/eventsStore';
 import { useUsersStore } from '@/stores/usersStore';
 import { ref } from 'vue';
 
@@ -16,8 +14,6 @@ defineProps<{
 }>()
 
 const usersStore = useUsersStore()
-const authStore = useAuthStore()
-const eventsStore = useEventsStore()
 
 </script>
 
