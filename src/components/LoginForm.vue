@@ -100,22 +100,22 @@ body {
 .form {
     background-color: rgba(0, 109, 176, 0.75);
     background-position: center;
-    height: 60vh;
-    width: 30vw;
+    height: 50vh;
+    width: 26vw;
     // opacity: 70%;
-    border-radius: 1.5rem;
+    border-radius: 1rem;
     text-align: center;
     color: #FFFFFF;
     font-family: "Raleway", sans-serif;
-    font-size: 15px;
+    font-size: 25px;
     align-items: center;
     margin: 0 auto;
     
 }
 
 p {
-    margin: 4%;
-    font-size: 10px;
+    margin: 3%;
+    font-size: 16px;
     
 }
 
@@ -123,25 +123,27 @@ button {
     background-color: #27a138;
     color: #FFFFFF;
     font-family: 'Raleway', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     width: 25%;
-    height: 20%;
+    height: 40%;
     border-radius: 0.5rem;
-    margin: 1.5%;
+    margin: 2%;
 }
 
 label {
     margin: 0%;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 input {
-    border-radius: 1rem;
+    border-radius: 0.6rem;
     background-color: #FAFAF9;
     border-color: #ffffff;
-    margin: 1.5%;
-    width: 50%;
+    margin: 2%;
+    width: 75%;
     height: 20%;
+    font-size: 22px;
+    text-align: center;
 }
 
 img {

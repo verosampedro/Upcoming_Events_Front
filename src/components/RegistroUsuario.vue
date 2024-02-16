@@ -98,35 +98,31 @@ const login = async () => {
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
-
+body {
+    max-width: 100vw;
+}
 
 #container {
-
+  background-color: #006db0;
   background-size:cover;
   background-repeat: no-repeat;
-  height: 100rem;
-  padding: 3%;
+  height: 100vh;
+  padding: 15% 3% 3% 3%;
   
   
 .form {
   background-color: #FFE039;
   background-position: center;
-  height: 40rem;
-  width: 40rem;
+  height: 50vh;
+  width: 26vw;
   opacity: 70%;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   text-align: center;
   color: #FFFFFF;
   font-family: 'Raleway', sans-serif;
-  font-size: 35px;
+  font-size: 28px;
   align-items: center;
   margin: 0 auto;
-  
-}
-
-p {
-  margin: 4%;
-  font-size: 28px;
   
 }
 
@@ -134,28 +130,31 @@ button {
   background-color: #006db0;
   color: #FFFFFF;
   font-family: 'Raleway', sans-serif;
-  font-size: 22px;
-  width: 12rem;
-  height: 3.5rem;
-  border-radius: 1.5rem;
-  margin: 3%;
+  font-size: 18px;
+  width: 28%;
+  height: 40%;
+  border-radius: 0.5rem;
+  margin: 3.5%;
 }
 
 label {
   margin: 1%;
+  font-size: 20px;
 }
 
 input {
-  border-radius: 1rem;
+  border-radius: 0.6rem;
   background-color: #FAFAF9;
   border-color: #ffffff;
   margin: 1.5%;
-  width: 30rem;
-  height: 3rem;
+  width: 80%;
+  height: 20%;
+  font-size: 20px;
+  text-align: center;
 }
 
 img {
-  margin: 5%;
+  margin: 6%;
  
 }
 }

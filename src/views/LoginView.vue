@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import LoginForm from '@/components/LoginForm.vue';
 import HeaderTemplate from '@/components/Home/HeaderTemplate.vue';
-// import RegistroUsuario from '@/components/RegistroUsuario.vue';
+import RegistroUsuario from '@/components/RegistroUsuario.vue';
 
 
 </script>
@@ -9,7 +9,7 @@ import HeaderTemplate from '@/components/Home/HeaderTemplate.vue';
     <div>
         <HeaderTemplate/>
         <LoginForm/>
-        <!-- <RegistroUsuario/> -->
+       <RegistroUsuario/>
         
 
     </div>
