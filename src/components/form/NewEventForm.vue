@@ -17,6 +17,14 @@ const fetchCities = async () => {
 
 fetchCities();
 
+const eventForm = ref<HTMLFormElement | null>(null);
+
+const resetForm = () => {
+  if (eventForm.value){
+    eventForm.value.reset();
+  }
+};
+
 
 let event_title ='';
 let start_date = '';
@@ -25,7 +33,13 @@ let max_participants='';
 let description='';
 let cityName: '';
 let event_image = '';
-const submitForm = () => {
+
+const isSubmitting = ref(false);
+
+const submitForm = async () => {
+  if(isSubmitting.value) return;
+  isSubmitting.value=true;
+
   axios.post("http://localhost:8080/api/v1/events",{
    
     event_title: event_title,
@@ -38,9 +52,13 @@ const submitForm = () => {
   }) 
   
   .then(response => {
+    alert('El evento se ha creado con éxito');
+    resetForm();
+    isSubmitting.value = false;
     console.log(response, "Se ha añadido el evento");
   })
   .catch(error => {
+    alert('no se ha creado un nuevo evento')
     console.log(error, "necesita estar logueado");
   });
 }
@@ -70,6 +88,7 @@ const submitForm = () => {
           <path d="M6 6l12 12" />
         </svg>
       </div>
+      <form ref="eventForm" @submit.prevent="submitForm">
       <div class="EventNameContainer">
         <label class="EventName" for="EventName">Nombre del Evento:</label>
         <input class="EventNameInput" type="text" v-model="event_title"/>
@@ -120,8 +139,9 @@ const submitForm = () => {
         <input class="form-control" type="file" id="formFile" />
       </div>
       <div class="SubmitButton">
-        <button class="subBtn" type="submit" @click="submitForm">Guardar</button>
+        <button class="subBtn" type="submit"  @click="submitForm">Guardar</button>
       </div>
+      </form>
     </div>
   </div>
 </template>
