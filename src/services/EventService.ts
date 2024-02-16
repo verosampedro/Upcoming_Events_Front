@@ -1,5 +1,6 @@
 import Event from "@/models/Event";
 import EventRepository from "@/repositories/EventRepository";
+import axios from 'axios';
 
 export default class EventService {
 
@@ -21,4 +22,26 @@ export default class EventService {
 
         return this.events
     }
-}
+
+    async update(id: number, event: Record<string, any>): Promise<Array<Record<string, any>>> {
+        try {
+          
+          const response = await axios.get(`${this.repository}/events`);
+          const events: Array<Record<string, any>> = response.data;
+    
+         
+          await axios.put(`${this.repository}/events/${id}`, event);
+    
+          
+          const indexOfEvent = events.findIndex((element) => element.id === id);
+    
+          
+          events[indexOfEvent] = event;
+    
+          return events;
+        } catch (error) {
+          console.error('Error al actualizar el ticket:', error);
+          throw error;
+        }
+      }
+    }
