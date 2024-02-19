@@ -2,6 +2,16 @@
 import axios from 'axios';
 import { ref } from 'vue';
 
+// const props = defineProps({
+//   isOpen: Boolean,
+// });
+
+// const emit = defineEmits(["popUp-close"]);
+
+// const target = ref(null)
+// onClickOutside(target, () => emit('popUp-close'))
+
+
 interface cities {
     id_city : number;
     nameOfCity: string;
@@ -71,6 +81,7 @@ const submitForm = async () => {
       <div class="titleContainer">
         <label class="x">x</label>
         <label class="title" for="title">Crear nuevo Evento</label>
+        <button onclick="self.close();" onkeypress="self.close();">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-x"
@@ -81,12 +92,12 @@ const submitForm = async () => {
           stroke="#ffffff"
           fill="none"
           stroke-linecap="round"
-          stroke-linejoin="round"
-        >
+          stroke-linejoin="round"       >
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path d="M18 6l-12 12" />
           <path d="M6 6l12 12" />
         </svg>
+      </button>
       </div>
       <form ref="eventForm" @submit.prevent="submitForm">
       <div class="EventNameContainer">

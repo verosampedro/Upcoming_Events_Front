@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AdminCards from '@/components/AdminCards.vue';
 import PastEventsAdmin from '@/components/PastEventsAdmin.vue';
-import ComboCity from '@/components/form/ComboCity.vue';
+import BtnNewEvent from '@/components/form/BtnNewEvent.vue';
 
 </script>
 <template>
@@ -9,7 +9,7 @@ import ComboCity from '@/components/form/ComboCity.vue';
 
         <AdminCards />
         <PastEventsAdmin />
-        <ComboCity/>
+        <BtnNewEvent/>
         
     </div>
 </template>
