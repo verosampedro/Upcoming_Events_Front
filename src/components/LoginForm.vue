@@ -102,7 +102,6 @@ body {
     background-position: center;
     height: 50vh;
     width: 26vw;
-    // opacity: 70%;
     border-radius: 1rem;
     text-align: center;
     color: #FFFFFF;
