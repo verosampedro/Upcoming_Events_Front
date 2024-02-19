@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { ref } from 'vue';
 import NewEventForm from './NewEventForm.vue';
 
@@ -20,4 +20,4 @@ const closeForm = () => {
     <NewEventForm :isOpen="isFormOpened" @popUp-close="closeForm"/>
 </template>
 <style scoped lang="scss">
-</style>
+</style> -->
