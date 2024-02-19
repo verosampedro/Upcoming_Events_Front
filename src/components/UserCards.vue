@@ -1,20 +1,30 @@
 <script setup lang="ts">
 
+import type Event from '@/models/Event';
 import { useUsersStore } from '@/stores/usersStore';
 import { ref } from 'vue';
 
-const isSigned = ref(false);
+const isSigned = ref<boolean>();
 
-const toggleSignedUp = () => {
-  isSigned.value = !isSigned.value;
+const checkSignedUp = async () => {
+  if (usersStore.currentUser.events.find((event) => props.event.event_title == event.event_title)) {
+    isSigned.value = true
+  } else {
+    isSigned.value = false
+  }
 };
 
-defineProps<{
-    event: any
+const toggleSignedUp = () => {
+  isSigned.value = !isSigned.value
+};
+
+const props = defineProps<{
+    event: Event
 }>()
 
 const usersStore = useUsersStore()
 
+checkSignedUp()
 </script>
 
 <template>
@@ -32,7 +42,7 @@ const usersStore = useUsersStore()
       <p>{{ event.start_date }} ~ 04/02/24</p>
     </div>
 
-    <button @click="toggleSignedUp(), usersStore.updateUserEvents(event.id)">
+    <button @click.prevent="toggleSignedUp(), usersStore.updateUserEvents(event.id)">
       {{ isSigned ? '¡ME DESAPUNTO!' : '¡ME APUNTO!' }}
     </button>
 
@@ -49,7 +59,7 @@ const usersStore = useUsersStore()
   padding: 10px;
   text-align: center;
   font-family: 'Raleway', sans-serif;
-  margin: 2%;
+  margin: 1%;
 
   .location,
   .date {

@@ -1,13 +1,13 @@
 export default class Event {
 
-    id:number
-    event_title:string 
-    start_date:number
-    finish_date:number
-    event_image:number
-    max_participants:number
-    description:string
-    city:object
+    id: number
+    event_title: string 
+    start_date: number
+    finish_date: number
+    event_image: number
+    max_participants: number
+    description: string
+    city: object
 
     constructor (id:number, event_title:string, start_date:number, finish_date:number, event_image:number, max_participants:number, description:string, city:object) {
 
@@ -52,6 +52,4 @@ export default class Event {
     getCity() {
         return this.city
     }
-
-
 }

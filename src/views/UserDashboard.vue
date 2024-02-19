@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import UserCards from '@/components/UserCards.vue';
-import { useEventsStore } from '@/stores/eventsStore';
+import { useUsersStore } from '@/stores/usersStore';
 
-const eventsStore = useEventsStore()
+const usersStore = useUsersStore()
 </script>
 <template>
     <div id="cards-container">
-        <UserCards v-for="event in eventsStore.events" :key="event.id" :event="event" />
+        <UserCards v-for="event in usersStore.currentUser.events" :key="event.id" :event="event" />
     </div>
 </template>
 <style scoped lang="scss">
