@@ -5,7 +5,7 @@ import { ref,type Ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 // import type { IAuthUser } from '@/models/IAuthUser';
 import AuthService from '@/services/AuthService';
-// import type { IRegisterUser } from '@/models/IRegisterUser';
+import type { IRegisterUser } from '@/models/IRegisterUser';
 
 
 
