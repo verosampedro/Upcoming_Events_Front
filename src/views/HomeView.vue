@@ -2,10 +2,8 @@
 import PastEventsUser from '@/components/PastEventsUser.vue';
 import UserCards from '@/components/UserCards.vue';
 import { useEventsStore } from '@/stores/eventsStore';
-import { useUsersStore } from '@/stores/usersStore';
 
 const eventsStore = useEventsStore()
-const usersStore = useUsersStore()
 </script>
 
 <template>

@@ -1,3 +1,5 @@
+import type { City } from "./ICity"
+
 export default class Event {
 
     id: number
@@ -7,9 +9,9 @@ export default class Event {
     event_image: number
     max_participants: number
     description: string
-    city: object
+    city: City
 
-    constructor (id:number, event_title:string, start_date:number, finish_date:number, event_image:number, max_participants:number, description:string, city:object) {
+    constructor (id:number, event_title:string, start_date:number, finish_date:number, event_image:number, max_participants:number, description:string, city: City) {
 
         this.id = id
         this.event_title = event_title

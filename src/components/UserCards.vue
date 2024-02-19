@@ -34,7 +34,7 @@ checkSignedUp()
 
     <div class="location">
       <img src="/src/assets/img/place-svgrepo-com.svg" alt="">
-      <p>{{ event.city.city_name }}</p>
+      <p>{{ event.city.nameOfCity }}</p>
     </div>
 
     <div class="date">
