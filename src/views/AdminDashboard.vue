@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AdminCards from '@/components/AdminCards.vue';
 import PastEventsAdmin from '@/components/PastEventsAdmin.vue';
+import ComboCity from '@/components/form/ComboCity.vue';
 
 </script>
 <template>
@@ -8,6 +9,7 @@ import PastEventsAdmin from '@/components/PastEventsAdmin.vue';
 
         <AdminCards />
         <PastEventsAdmin />
+        <ComboCity/>
         
     </div>
 </template>
