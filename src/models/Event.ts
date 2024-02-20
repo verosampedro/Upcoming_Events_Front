@@ -1,5 +1,8 @@
+import type { City } from "./ICity"
+
 export default class Event {
 
+<<<<<<< HEAD
     id:number
     event_title:string 
     start_date:number
@@ -9,8 +12,18 @@ export default class Event {
     description:string
     city:object
     
+=======
+    id: number
+    event_title: string 
+    start_date: number
+    finish_date: number
+    event_image: number
+    max_participants: number
+    description: string
+    city: City
+>>>>>>> feature/user-dashboard
 
-    constructor (id:number, event_title:string, start_date:number, finish_date:number, event_image:number, max_participants:number, description:string, city:object) {
+    constructor (id:number, event_title:string, start_date:number, finish_date:number, event_image:number, max_participants:number, description:string, city: City) {
 
         this.id = id
         this.event_title = event_title
@@ -53,6 +66,4 @@ export default class Event {
     getCity() {
         return this.city
     }
-
-
 }
