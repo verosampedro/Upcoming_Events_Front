@@ -23,25 +23,20 @@ export default class EventService {
         return this.events
     }
 
-    async update(id: number, event: Record<string, any>): Promise<Array<Record<string, any>>> {
-        try {
-          
-          const response = await axios.get(`${this.repository}/events`);
-          const events: Array<Record<string, any>> = response.data;
+    async update(id: number, event: Object): Promise<Object> {
+        
+      try {
+             
+         this.repository.update(id, event)
     
-         
-          await axios.put(`${this.repository}/events/${id}`, event);
-    
-          
-          const indexOfEvent = events.findIndex((element) => element.id === id);
-    
-          
-          events[indexOfEvent] = event;
-    
-          return events;
+          return event;
+
         } catch (error) {
-          console.error('Error al actualizar el ticket:', error);
+
+          console.error('Error al actualizar el evento:', error);
+
           throw error;
+
         }
       }
     }
