@@ -1,16 +1,9 @@
 <script setup lang="ts">
+import { usePopUpStore } from '@/stores/popUpStore';
 import axios from 'axios';
 import { ref } from 'vue';
 
-// const props = defineProps({
-//   isOpen: Boolean,
-// });
-
-// const emit = defineEmits(["popUp-close"]);
-
-// const target = ref(null)
-// onClickOutside(target, () => emit('popUp-close'))
-
+const popUpStore = usePopUpStore();
 
 interface cities {
     id_city : number;
@@ -81,7 +74,7 @@ const submitForm = async () => {
       <div class="titleContainer">
         <label class="x">x</label>
         <label class="title" for="title">Crear nuevo Evento</label>
-        <button onclick="self.close();" onkeypress="self.close();">
+        <button @click="popUpStore.toogleShowForm">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-x"
@@ -157,4 +150,5 @@ const submitForm = async () => {
   </div>
 </template>
 <style scoped lang="scss">
+
 </style>
