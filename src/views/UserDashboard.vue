@@ -1,19 +1,5 @@
 <script setup lang="ts">
-<<<<<<< HEAD
-import NewEventForm from '@/components/form/NewEventForm.vue';
 
-
-</script>
-<template>
-  <body>
-    <div>
-        <NewEventForm/>
-    </div>
-  </body>
-</template>
-<style scoped lang="scss">
-</style>
-=======
 import UserCards from '@/components/UserCards.vue';
 import { useUsersStore } from '@/stores/usersStore';
 
@@ -56,4 +42,4 @@ const usersStore = useUsersStore()
     }
 }
 </style>
->>>>>>> feature/user-dashboard
+
