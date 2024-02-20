@@ -4,7 +4,6 @@ import PastEventsAdmin from '@/components/PastEventsAdmin.vue';
 import BtnNewEvent from '@/components/form/BtnNewEvent.vue';
 import NewEventForm from '@/components/form/NewEventForm.vue';
 import { usePopUpStore } from '@/stores/popUpStore';
-import { ref } from 'vue';
 
 const popUpStore = usePopUpStore();
 
