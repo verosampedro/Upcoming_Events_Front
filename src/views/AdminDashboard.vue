@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import AdminCards from '@/components/AdminCards.vue';
 import PastEventsAdmin from '@/components/PastEventsAdmin.vue';
-import ComboCity from '@/components/form/ComboCity.vue';
+import BtnNewEvent from '@/components/form/BtnNewEvent.vue';
+import NewEventForm from '@/components/form/NewEventForm.vue';
+import { usePopUpStore } from '@/stores/popUpStore';
+
+const popUpStore = usePopUpStore();
 
 </script>
 <template>
@@ -9,7 +13,8 @@ import ComboCity from '@/components/form/ComboCity.vue';
 
         <AdminCards />
         <PastEventsAdmin />
-        <ComboCity/>
+        <BtnNewEvent @click="popUpStore.toogleShowForm"/>
+        <NewEventForm v-if="popUpStore.showForm"/>
         
     </div>
 </template>
