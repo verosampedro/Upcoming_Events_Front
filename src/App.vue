@@ -22,8 +22,8 @@ onBeforeMount (async () => {
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/login">Login</RouterLink>
-      <RouterLink to="/user-dashboard">User Dasboard</RouterLink>
-      <RouterLink to="/admin-dashboard">Admin Dasboard</RouterLink>
+      <RouterLink to="/user-dashboard">User Dashboard</RouterLink>
+      <RouterLink to="/admin-dashboard">Admin Dashboard</RouterLink>
     </nav>
   </div>
 

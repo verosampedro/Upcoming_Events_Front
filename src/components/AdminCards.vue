@@ -1,4 +1,20 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+import { useEditStore } from '@/stores/editStore';
+import EditCard from './EditCard.vue';
+
+const props = defineProps<{
+    event: Event
+}>()
+
+const editStore = useEditStore();
+const eventId = ref<number>(); 
+
+const onEditButtonClick = (id: number | undefined) => {
+  eventId.value = id;
+  editStore.toggleShowForm();
+};
+
 
 </script>
 
@@ -8,26 +24,33 @@
 
         <img src="/src/assets/img/Jornadas-de-la-Matanza-2024-FIT-Amieva.jpg" alt="" class="mainImage">
 
-        <h2>JORNADAS DE LA MATANZA</h2>
+        <h2>{{ props.event.event_title}}</h2>
 
         <div class="location">
 
             <img src="/src/assets/img/place-svgrepo-com.svg" alt="">
-            <p>AMIEVA</p>
+            <p>{{ props.event.city.nameOfCity }}</p>
 
         </div>
 
         <div class="date">
 
             <img src="/src/assets/img/calendar-days-svgrepo-com.svg" alt="">
-            <p>02/02/2024 ~ 04/02/24</p>
+            <p>{{props.event.start_date}} ~ {{props.event.finish_date}}</p>
 
         </div>
 
         <div class="buttonContainer">
 
             <img src="/src/assets/img/star-svgrepo-com.svg" alt="">
-            <button>EDITAR</button>
+            <button @click="onEditButtonClick(props.event.id)">EDITAR</button>
+
+            <template v-if="editStore.isEditing">
+
+            <EditCard :event="props.event" />
+
+            </template>
+
             <img src="/src/assets/img/trash-svgrepo-com.svg" alt="">
 
         </div>
