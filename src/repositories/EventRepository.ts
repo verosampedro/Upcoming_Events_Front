@@ -14,4 +14,20 @@ export default class EventRepository {
             throw new Error('Error occurred during API fetch GET request to the Events table');
         }
     }
+
+    async update(id: number, data: Object) {
+        try {
+            const response = await axios.put(`${this.uri}/${id}`, data, {
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                withCredentials:true
+            });
+    
+            console.log(response.data);
+        } catch (error) {
+            console.error('Error occurred during API fetch PUT request:', error);
+            throw error; 
+        }
+    }
 }

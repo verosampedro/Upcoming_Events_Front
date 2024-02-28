@@ -1,5 +1,6 @@
 import Event from "@/models/Event";
 import EventRepository from "@/repositories/EventRepository";
+import axios from 'axios';
 
 export default class EventService {
 
@@ -21,4 +22,21 @@ export default class EventService {
 
         return this.events
     }
-}
+
+    async update(id: number, event: Object): Promise<Object> {
+        
+      try {
+             
+         this.repository.update(id, event)
+    
+          return event;
+
+        } catch (error) {
+
+          console.error('Error al actualizar el evento:', error);
+
+          throw error;
+
+        }
+      }
+    }
