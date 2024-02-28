@@ -18,18 +18,6 @@ onBeforeMount (async () => {
   
   <div class="wrapper">
 
-<<<<<<< HEAD
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/login">Login</RouterLink>
-      <RouterLink to="/user-dashboard">User Dasboard</RouterLink>
-      <RouterLink to="/admin-dashboard">Admin Dasboard</RouterLink>
-    </nav>
-  </div>
-
-  <HeaderTemplate />
-  
-=======
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/login">Login</RouterLink>
@@ -41,7 +29,6 @@ onBeforeMount (async () => {
  
     <HeaderTemplate />
 
->>>>>>> 763bcbf12856c52c6495ee084e66e66b7c225366
   <RouterView />
 
   <FooterTemplate />

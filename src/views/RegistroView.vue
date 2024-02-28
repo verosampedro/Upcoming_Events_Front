@@ -8,7 +8,7 @@ import HeaderTemplate from '@/components/Home/HeaderTemplate.vue';
 <template>
     <div>
 
-        <HeaderTemplate/>
+        
         <RegistroUsuario/>
         
 
