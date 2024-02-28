@@ -1,18 +1,9 @@
 <script setup lang="ts">
-import RegistroUsuario from '@/components/RegistroUsuario.vue';
-import HeaderTemplate from '@/components/Home/HeaderTemplate.vue';
-
-
-
+import RegistroUsuario from "@/components/RegistroUsuario.vue";
 </script>
 <template>
-    <div>
-
-        
-        <RegistroUsuario/>
-        
-
-    </div>
+  <div>
+    <RegistroUsuario />
+  </div>
 </template>
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>
