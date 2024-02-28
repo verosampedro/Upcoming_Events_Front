@@ -20,6 +20,17 @@ const fetchCities = async () => {
 
 fetchCities();
 
+// const handleImageUpload = (event) => {
+//   const file = event.target.files[0];
+//   if (file) {
+//     const reader = new FileReader();
+//     reader.onload = (e) => {
+//       event_image = e.target.result;
+//     };
+//     reader.readAsDataURL(file);
+//   }
+// }
+
 const eventForm = ref<HTMLFormElement | null>(null);
 
 const resetForm = () => {
@@ -52,7 +63,7 @@ const submitForm = async () => {
     description: description,
     cityName: cityName,
     event_image: event_image
-  }) 
+  }, {withCredentials:true}) 
   
   .then(response => {
     alert('El evento se ha creado con éxito');
