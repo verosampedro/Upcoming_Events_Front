@@ -9,24 +9,23 @@ const eventsStore = useEventsStore()
 
 <template>
   <main>
-<<<<<<< HEAD
+
+    <CarrouselTemplate />
+  
     <h2 class="event-titles">Eventos en curso</h2>
     <div id="cards-container"  v-if="eventsStore.isLoaded">
       <UserCards v-for="event in eventsStore.events" :key="event.id" :event="event"/>
     </div>
     <h2 class="event-titles">Eventos pasados</h2>
     <button @click="console.log(eventsStore.events)">Print Data</button>
-=======
-    <h1></h1>
-    <h1></h1>
-    <CarrouselTemplate />
+ 
 
     <button @click="console.log(eventsStore.events)">Print Data</button>
-    <UserCards v-for="event in eventsStore.events" :key="event.id" :event="event" />
->>>>>>> feature/carrousel
+        <UserCards v-for="event in eventsStore.events" :key="event.id" :event="event" />
+    
     <PastEventsUser />
   </main>
-</template>
+  </template>
 
 <style scoped lang="scss">
 #cards-container {
