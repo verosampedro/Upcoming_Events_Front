@@ -20,6 +20,7 @@ const fetchCities = async () => {
 
 fetchCities();
 
+
 const eventForm = ref<HTMLFormElement | null>(null);
 
 const resetForm = () => {
@@ -52,7 +53,7 @@ const submitForm = async () => {
     description: description,
     cityName: cityName,
     event_image: event_image
-  }) 
+  }, {withCredentials:true}) 
   
   .then(response => {
     alert('El evento se ha creado con éxito');
