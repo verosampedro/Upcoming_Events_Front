@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LoginForm from '@/components/LoginForm.vue';
+import RegistroUsuario from '@/components/RegistroUsuario.vue';
 import HeaderTemplate from '@/components/Home/HeaderTemplate.vue';
 
 
@@ -7,7 +7,9 @@ import HeaderTemplate from '@/components/Home/HeaderTemplate.vue';
 </script>
 <template>
     <div>
-        <LoginForm/>
+
+        <HeaderTemplate/>
+        <RegistroUsuario/>
         
 
     </div>

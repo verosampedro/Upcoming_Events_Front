@@ -86,47 +86,36 @@ const login = async () => {
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
-
+body {
+    max-width: 100vw;
+}
 
 #container {
     background-image: url(src/assets/img/fondo_login.png);
     background-size:cover;
     background-repeat: no-repeat;
-    height: 100rem;
-    position: relative;
+    height: 100vh;
+    padding: 15% 3% 3% 3%;
     
-    @media (min-width: 1024px) {
-
-    }
-    * { 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    min-height: 100%;
-}
     
 .form {
-    background-color: #006DB0;
+    background-color: rgba(0, 109, 176, 0.75);
     background-position: center;
-    height: 40rem;
-    width: 40rem;
-    opacity: 70%;
-    border-radius: 1.5rem;
+    height: 50vh;
+    width: 26vw;
+    border-radius: 1rem;
     text-align: center;
     color: #FFFFFF;
-    font-family: 'Raleway', sans-serif;
-    font-size: 35px;
+    font-family: "Raleway", sans-serif;
+    font-size: 25px;
     align-items: center;
     margin: 0 auto;
     
 }
 
 p {
-    margin: 4%;
-    font-size: 28px;
+    margin: 3%;
+    font-size: 16px;
     
 }
 
@@ -134,24 +123,27 @@ button {
     background-color: #27a138;
     color: #FFFFFF;
     font-family: 'Raleway', sans-serif;
-    font-size: 28px;
-    width: 14rem;
-    height: 4.5rem;
-    border-radius: 1.5rem;
-    margin: 1.5%;
+    font-size: 18px;
+    width: 25%;
+    height: 40%;
+    border-radius: 0.5rem;
+    margin: 2%;
 }
 
 label {
     margin: 0%;
+    font-size: 20px;
 }
 
 input {
-    border-radius: 1rem;
+    border-radius: 0.6rem;
     background-color: #FAFAF9;
     border-color: #ffffff;
-    margin: 1.5%;
-    width: 30rem;
-    height: 3rem;
+    margin: 2%;
+    width: 75%;
+    height: 20%;
+    font-size: 22px;
+    text-align: center;
 }
 
 img {

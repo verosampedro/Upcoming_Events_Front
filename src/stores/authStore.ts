@@ -1,4 +1,5 @@
 import type { ILoggedInUser } from "@/models/ILoggedInUser"
+import type { IRegisterUser } from "@/models/IRegisterUser"
 import { defineStore } from "pinia"
 import { reactive } from "vue"
 
@@ -10,7 +11,16 @@ export const useAuthStore = defineStore('auth', () => {
         email: '',
         roles: '',
         isAuthenticated: false
+
+    })
+    const newUser: IRegisterUser= reactive ({
+        email: '',
+        password: '',
+        roles: '',
+        isAuthenticated: false  
     })
     
-    return { user }
+    return { user, newUser }
 })
+
+
