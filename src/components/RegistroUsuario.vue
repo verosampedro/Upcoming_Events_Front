@@ -4,14 +4,13 @@ import { useAuthStore } from '@/stores/authStore';
 import { ref,type Ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 // import type { IAuthUser } from '@/models/IAuthUser';
-// import AuthService from '@/services/AuthService';
+import AuthService from '@/services/AuthService';
 import type { IRegisterUser } from '@/models/IRegisterUser';
-
-
+import axios from 'axios';
 
 
 const store = useAuthStore()
-// const service = new AuthService()
+const service = new AuthService()
 
 const input_email: Ref<string> = ref('')
 const input_password: Ref<string> = ref('')
@@ -21,25 +20,44 @@ const router = useRouter()
 
 const register = async () => {
 
-  store.user.email = input_email.value
+  // store.user.email = input_email.value
+  
+  // const data: IRegisterUser = {
+  //   email: input_email.value,
+  //   password: input_password.value
+  // }
 
-  const data: IRegisterUser = {
-    email: input_email.value,
-    password: input_password.value
-  }
+  // const responseData = await service.register(data)
 
-  const responseData = await service.register(data)
+  // if (input_email.value == store.user.email) {
+  //   store.user.isAuthenticated = responseData.isAuthenticated
+  //   store.user.roles = responseData.roles
+  //   const redirectPath = '/'
+  //   router.push(redirectPath)
+  // }
 
-  if (input_email.value == store.user.email) {
-    store.user.isAuthenticated = responseData.isAuthenticated
-    store.user.roles = responseData.roles
-    const redirectPath = '/'
-    router.push(redirectPath)
+  try {
+    const data: IRegisterUser = {
+      email: input_email.value,
+      password: input_password.value,
+      roles: "users",
+      isAuthenticated: true,
+    }
+    isLoading.value = true;
+    
+    const responseData = await axios.post('/api/register', data);
+    store.user.isAuthenticated = responseData.data.isAuthenticated;
+    store.user.roles = responseData.data.roles;
+    const redirectPath = '/';
+    router.push(redirectPath);
+  } catch (error) {
+    console.error('Error al registrar:', error);
+
+  } finally {
+    isLoading.value = false;
   }
 
 }
-
-// const store = useAuthStore()
 
  const username = ref('')
  const password = ref('')
