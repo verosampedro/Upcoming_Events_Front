@@ -60,9 +60,7 @@ const login = async () => {
 
 
 <template>
-    <body>
         <div id="container">
-            <div></div>
             <div class="form">
                 <img src="/src/assets/img/layout_set_logo.png" alt="">
                     <form @submit.prevent="login()">
@@ -79,8 +77,6 @@ const login = async () => {
             </div>
                     
         </div>
-
-    </body>
 </template>
 <style scoped lang="scss">
 
