@@ -4,9 +4,11 @@ import { useEventsStore } from './stores/eventsStore';
 import { onBeforeMount } from 'vue'
 import HeaderTemplate from './components/Home/HeaderTemplate.vue';
 import FooterTemplate from './components/Home/FooterTemplate.vue';
+import { useUsersStore } from './stores/usersStore';
 
 
 const eventsStore = useEventsStore()
+const usersStore = useUsersStore()
 
 onBeforeMount (async () => {
   await eventsStore.setEvents()

@@ -7,7 +7,7 @@ import { reactive } from "vue"
 
 export const useAuthStore = defineStore('auth', () => {
 
-    const user: ILoggedInUser= reactive({
+    const user: ILoggedInUser = reactive({
         email: '',
         roles: '',
         isAuthenticated: false

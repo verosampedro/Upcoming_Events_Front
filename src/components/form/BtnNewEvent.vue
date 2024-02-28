@@ -1,23 +1,20 @@
-<!-- <script setup lang="ts">
-import { ref } from 'vue';
-import NewEventForm from './NewEventForm.vue';
+<script setup lang="ts">
 
-
-const isFormOpened = ref(false);
-
-const openForm = () => {
-    isFormOpened.value = true;
-};
-const closeForm = () => {
-    isFormOpened.value = false;
-};
 
 </script>
 <template>
     <div>
-        <button @click="openForm">Crear nuevo Evento</button>
+        <button class="btnNewEvent">Crear nuevo Evento</button>
     </div>
-    <NewEventForm :isOpen="isFormOpened" @popUp-close="closeForm"/>
 </template>
 <style scoped lang="scss">
-</style> -->
+
+.btnNewEvent {
+    background-color: $astur-green;
+      color: white;
+      border-radius: 5px;
+      padding: 1% 2%;
+      text-align: center;
+      font-family: $first-font;
+}
+</style>
