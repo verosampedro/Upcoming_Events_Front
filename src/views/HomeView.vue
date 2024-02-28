@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import CarrouselTemplate from '@/components/Home/CarrouselTemplate.vue';
 import PastEventsUser from '@/components/PastEventsUser.vue';
 import UserCards from '@/components/UserCards.vue';
 import { useEventsStore } from '@/stores/eventsStore';
@@ -8,15 +9,17 @@ const eventsStore = useEventsStore()
 
 <template>
   <main>
+
+    <CarrouselTemplate />
+  
     <h2 class="event-titles">Eventos en curso</h2>
     <div id="cards-container"  v-if="eventsStore.isLoaded">
       <UserCards v-for="event in eventsStore.events" :key="event.id" :event="event"/>
     </div>
     <h2 class="event-titles">Eventos pasados</h2>
-    <button @click="console.log(eventsStore.events)">Print Data</button>
     <PastEventsUser />
   </main>
-</template>
+  </template>
 
 <style scoped lang="scss">
 #cards-container {

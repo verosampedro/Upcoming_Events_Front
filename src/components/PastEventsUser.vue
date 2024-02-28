@@ -46,6 +46,7 @@ const toggleSignedUp = () => {
   padding: 10px;
   text-align: center;
   font-family: 'Raleway', sans-serif;
+  margin: 1%;
 
   .location,
   .date {
