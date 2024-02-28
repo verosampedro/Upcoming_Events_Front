@@ -22,6 +22,8 @@ const props = defineProps<{
     event: Event
 }>()
 
+const imageDirectory = 'http://localhost:8080/api/v1/images/' + props.event.event_image
+
 const usersStore = useUsersStore()
 
 checkSignedUp()
@@ -29,7 +31,7 @@ checkSignedUp()
 
 <template>
   <div id="cards">
-    <img src="/src/assets/img/Jornadas-de-la-Matanza-2024-FIT-Amieva.jpg" alt="" class="mainImage">
+    <img :src="imageDirectory" alt="" class="mainImage">
     <h2>{{ event.event_title }}</h2>
 
     <div class="location">
