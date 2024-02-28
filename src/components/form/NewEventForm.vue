@@ -20,16 +20,6 @@ const fetchCities = async () => {
 
 fetchCities();
 
-// const handleImageUpload = (event) => {
-//   const file = event.target.files[0];
-//   if (file) {
-//     const reader = new FileReader();
-//     reader.onload = (e) => {
-//       event_image = e.target.result;
-//     };
-//     reader.readAsDataURL(file);
-//   }
-// }
 
 const eventForm = ref<HTMLFormElement | null>(null);
 
