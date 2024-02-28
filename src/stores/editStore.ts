@@ -1,16 +1,11 @@
+import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
-const useEditStore = () => {
+export const useEditStore = defineStore('edit', () => { () => {
   const isEditing = ref(false);
 
-  const toggleShowForm = () => {
-    isEditing.value = !isEditing.value;
-  };
-
   return {
-    isEditing,
-    toggleShowForm,
-  };
-};
-
-export { useEditStore };
+    isEditing
+  }
+}
+})

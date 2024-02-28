@@ -10,6 +10,21 @@ const props = defineProps<{
 const editStore = useEditStore();
 const existingEvent = ref(null);
 
+interface cities {
+    id_city : number;
+    nameOfCity: string;
+}
+
+const allCities = ref<cities[]>([]);
+
+const fetchCities = async () => {
+    const response = await axios.get("http://localhost:8080/api/v1/cities", {withCredentials:true});
+    allCities.value = response.data;
+    console.log(response.data);
+}
+
+fetchCities();
+
 /* const fetchExistingEvent = async (eventId) => {
   try {
     const response = await axios.get(`http://localhost:8080/api/v1/events/${eventId}`);
@@ -36,15 +51,25 @@ const description = ref <string>();
 const cityName = ref <string>();
 
 const submitForm = async () => {
+
+  fillForm();
+
   try {
       await axios.put(`http://localhost:8080/api/v1/events/${props.event.id}`, {
+        id: props.event.id,
         event_title: event_title.value,
         start_date: start_date.value,
         finish_date: finish_date.value,
         event_image: event_image.value,
         max_participants: max_participants.value,
         description: description.value,
-        city: cityName.value
+        cityName: cityName.value
+      }, 
+      {
+        headers: {
+            "Content-Type": "application/json"
+        },
+        withCredentials:true
       });
       alert('Evento actualizado con éxito');
   

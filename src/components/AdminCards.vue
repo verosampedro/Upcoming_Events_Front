@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import { useEditStore } from '@/stores/editStore';
 import EditCard from './EditCard.vue';
 
@@ -8,12 +7,14 @@ const props = defineProps<{
 }>()
 
 const editStore = useEditStore();
-const eventId = ref<number>(); 
 
-const onEditButtonClick = (id: number | undefined) => {
-  eventId.value = id;
-  editStore.toggleShowForm();
-};
+function toggleShowForm() {
+    editStore.isEditing = !editStore.isEditing
+  }
+
+// function onEditButtonClick():void {
+//   editStore.toggleShowForm()
+// }
 
 
 </script>
@@ -43,13 +44,13 @@ const onEditButtonClick = (id: number | undefined) => {
         <div class="buttonContainer">
 
             <img src="/src/assets/img/star-svgrepo-com.svg" alt="">
-            <button @click="onEditButtonClick(props.event.id)">EDITAR</button>
+            <button @click="toggleShowForm()">EDITAR</button>
 
-            <template v-if="editStore.isEditing">
+            <!-- <template v-if="editStore.isEditing"> -->
 
-            <EditCard :event="props.event" />
+            <EditCard  v-if="editStore.isEditing" :event="props.event" />
 
-            </template>
+            <!-- </template> -->
 
             <img src="/src/assets/img/trash-svgrepo-com.svg" alt="">
 
