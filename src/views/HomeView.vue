@@ -17,12 +17,6 @@ const eventsStore = useEventsStore()
       <UserCards v-for="event in eventsStore.events" :key="event.id" :event="event"/>
     </div>
     <h2 class="event-titles">Eventos pasados</h2>
-    <button @click="console.log(eventsStore.events)">Print Data</button>
- 
-
-    <button @click="console.log(eventsStore.events)">Print Data</button>
-        <UserCards v-for="event in eventsStore.events" :key="event.id" :event="event" />
-    
     <PastEventsUser />
   </main>
   </template>
