@@ -28,7 +28,7 @@ onBeforeMount (async () => {
       </nav>
     </div>
  
-  
+    <HeaderTemplate />
 
   <RouterView />
 
