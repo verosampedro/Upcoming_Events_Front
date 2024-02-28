@@ -27,8 +27,10 @@ onBeforeMount (async () => {
  
   
   <HeaderTemplate />
-  <FooterTemplate />
+  
   <RouterView />
+
+  <FooterTemplate />
 </template>
 
 <style scoped lang="scss">

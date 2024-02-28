@@ -1,22 +1,5 @@
-<template>
-    <div class="carousel-container">
-      <div class="slides" :style="{ transform: `translateX(-${(currentPage - 1) * 100}%)` }">
-        <div class="slide" v-for="(page, index) in totalSlides" :key="index">
-          <div class="row">
-            <div class="card" v-for="(photo, idx) in getPhotosForPage(page)" :key="idx">
-              <img :src="photo" alt="Slide" class="photo">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="controls">
-        <div class="arrow left" @click="previousPage">&#60;</div>
-        <div class="arrow right" @click="nextPage">&#62;</div>
-      </div>
-    </div>
-  </template>
-  
-  <script setup lang="ts">
+<script setup lang="ts">
+
   import { ref } from 'vue';
   
   const photos = [
@@ -48,9 +31,33 @@
   const nextPage = () => {
     currentPage.value = currentPage.value === totalSlides ? 1 : currentPage.value + 1;
   };
-  </script>
-  
-  <style scoped lang="scss">
+
+</script>
+
+
+<template>
+
+    <div class="carousel-container">
+      <div class="slides" :style="{ transform: `translateX(-${(currentPage - 1) * 100}%)` }">
+        <div class="slide" v-for="(page, index) in totalSlides" :key="index">
+          <div class="row">
+            <div class="card" v-for="(photo, idx) in getPhotosForPage(page)" :key="idx">
+              <img :src="photo" alt="Slide" class="photo">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="controls">
+        <div class="arrow left" @click="previousPage">&#60;</div>
+        <div class="arrow right" @click="nextPage">&#62;</div>
+      </div>
+    </div>
+
+</template>
+
+
+<style scoped lang="scss">
+
   .carousel-container {
     position: relative;
     width: 100%;
@@ -118,5 +125,6 @@
       font-weight: bold;
     }
   }
-  </style>
+  
+</style>
   
